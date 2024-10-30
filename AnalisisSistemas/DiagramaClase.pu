@@ -1,0 +1,44 @@
+@startuml
+
+class Usuario{
+    - nomCompleto : String
+    - Apellidos : String
+    - correoElectronico : String
+    - contrasenia : String
+}
+
+class Producto{
+    - nombre: String
+    - descripcion: String
+    - costo: Float
+    - cantidad: Int
+}
+
+class Inventorio{
+    - producto : Producto
+    - proveedor : string
+    - orden_compra : string
+    - imagen : string
+}
+
+class Detalle_Factura{
+    - descripcion : string
+    - IVA : Double
+    - tipo_pago : string
+    - factura : Factura
+}
+
+class Factura{
+    - usuario : Usuario
+    - producto : Producto
+    - costo_envio : float
+    - total_compra : float
+    - total_unitario : float
+}
+
+
+Producto *-- Inventorio
+Usuario *-- Factura
+Producto *-- Factura
+Factura *-- Detalle_Factura
+@enduml
